@@ -1,0 +1,54 @@
+//画布相关的
+    // const canvas = document.getElementById("canvas");
+    // const context = canvas.getContext("2d");
+    // context.beginPath();
+    // context.arc(100, 70, 50, 0, Math.PI * 2, true);
+    // context.closePath();
+    // context.fillStyle = 'rgb(100,255,255)';
+    // context.fillStyle = 'rgb(100,255,255)';
+    // context.shadowBlur = 120;
+    // context.shadowColor = 'rgb(100,255,255)';
+    // context.fill();
+    //
+    // context.font="20px Georgia";
+    // const gradient = context.createLinearGradient(0, 0, canvas.width, 0);
+    // gradient.addColorStop(0,"magenta");
+    // gradient.addColorStop(0.5,"blue");
+    // gradient.addColorStop(1.0,"red");
+    // context.fillStyle=gradient
+    // context.font="10px Georgia"
+    // context.fillText("Hello World!",40,80);
+    // context.fillRect(10,10,50,50);
+
+    // var c=document.getElementById("canvas");
+    // var ctx=c.getContext("2d");
+
+    // ctx.font="20px Georgia";
+    // ctx.fillText("Hello World!",10,50);
+
+    // ctx.font="30px Verdana";
+    // var gradient=ctx.createLinearGradient(0,0,c.width,0);
+    // gradient.addColorStop("0","magenta");
+    // gradient.addColorStop("0.5","blue");
+    // gradient.addColorStop("1.0","red");
+    // // Fill with gradient
+    // ctx.fillStyle=gradient;
+    // ctx.fillText("Big smile!",10,90);
+
+
+
+
+
+
+    // context.scale(1,-1)
+    // context.translate(canvas.width/2,-canvas.height/2)
+    // context.beginPath();
+    // context.arc(0, 0, 50, 0, Math.PI * 2, true);
+    // context.closePath();
+    // context.fillStyle = 'rgb(100,255,255)';
+    // context.shadowBlur = 10;
+    // context.shadowColor = 'rgb(100,255,255)';
+    // context.fill()
+
+
+    ok？

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Line</title>
+  <script type="text/javascript" src="js/canvas..js"></script>
+  <script type="text/javascript" src="js/canvas_fill.js"></script>
+</head>
+
+<body>
+<canvas id="canvas"></canvas>
+<script>
+  //region 1.变换rote
+  const marginBootom = 50;
+  const marginLeft = 40;
+  const canvas = document.getElementById("canvas");
+  //设置画布的宽高
+  canvas.width = 500;
+  canvas.height = 300;
+  //绘制的对象获取
+  const context = canvas.getContext("2d");
+  //渐变
+  context.strokeStyle = "rgb(0,0,0,1)"
+  context.lineWidth = 0.09
+
+  //沿x轴镜像对称变换画布
+  context.scale(1, -1)
+  //向下平移画布-marginBootom的高度
+  context.translate(marginLeft, -canvas.height + marginBootom)
+
+  //绘制X轴和刻度
+  drawX(context)
+  //绘制文字
+  drawText(context)
+
+  function drawMoreLine(context) {
+    //绘制折线段
+    const widthOfOn = (canvas.width - marginLeft) / 7
+    const danweiHeight=35/50;//每个数字占用的实际像素高度
+    const point01 = Point.createNew(widthOfOn/2,            200*danweiHeight);
+    const point02 = Point.createNew(widthOfOn/2+widthOfOn,  250*danweiHeight);
+    const point03 = Point.createNew(widthOfOn/2+widthOfOn*2,225*danweiHeight);
+    const point04 = Point.createNew(widthOfOn/2+widthOfOn*3,211*danweiHeight);
+    const point05 = Point.createNew(widthOfOn/2+widthOfOn*4,140*danweiHeight);
+    const point06 = Point.createNew(widthOfOn/2+widthOfOn*5,148*danweiHeight);
+    const point07 = Point.createNew(widthOfOn/2+widthOfOn*6,260*danweiHeight);
+
+
+    const point011 = Point.createNew(widthOfOn/2,            150*danweiHeight);
+    const point012 = Point.createNew(widthOfOn/2+widthOfOn,  200*danweiHeight);
+    const point013 = Point.createNew(widthOfOn/2+widthOfOn*2,125*danweiHeight);
+    const point014 = Point.createNew(widthOfOn/2+widthOfOn*3,181*danweiHeight);
+    const point015 = Point.createNew(widthOfOn/2+widthOfOn*4,90*danweiHeight);
+    const point016 = Point.createNew(widthOfOn/2+widthOfOn*5,98*danweiHeight);
+    const point017 = Point.createNew(widthOfOn/2+widthOfOn*6,210*danweiHeight);
+
+
+    const point021 = Point.createNew(widthOfOn/2,            60*danweiHeight);
+    const point022 = Point.createNew(widthOfOn/2+widthOfOn,  65*danweiHeight);
+    const point023 = Point.createNew(widthOfOn/2+widthOfOn*2,61*danweiHeight);
+    const point024 = Point.createNew(widthOfOn/2+widthOfOn*3,70*danweiHeight);
+    const point025 = Point.createNew(widthOfOn/2+widthOfOn*4,78*danweiHeight);
+    const point026 = Point.createNew(widthOfOn/2+widthOfOn*5,68*danweiHeight);
+    const point027 = Point.createNew(widthOfOn/2+widthOfOn*6,72*danweiHeight);
+
+
+    const points = [point01, point02, point03, point04, point05, point06, point07];
+    const point1s = [point011, point012, point013, point014, point015, point016, point017];
+    const point2s = [point021, point022, point023, point024, point025, point026, point027];
+
+    context.save();
+    context.beginPath();
+    for (let index = 0; index < points.length; index++) {
+      context.lineTo(points[index].x,points[index].y);
+    }
+    context.strokeStyle="rgb(93,111,194)"
+    context.lineWidth=1
+    context.shadowBlur = 5;
+    context.stroke();
+    context.closePath();
+
+
+
+
+    context.beginPath();
+    for (let index = 0; index < point1s.length; index++) {
+      context.lineTo(point1s[index].x,point1s[index].y);
+    }
+    context.strokeStyle="rgb(193,111,194)"
+    context.lineWidth=1
+    context.shadowBlur = 5;
+    context.stroke();
+    context.closePath();
+
+    context.beginPath();
+    for (let index = 0; index < point2s.length; index++) {
+      context.lineTo(point2s[index].x,point2s[index].y);
+    }
+    context.strokeStyle="rgb(293,111,294)"
+    context.lineWidth=1
+    context.shadowBlur = 5;
+    context.stroke();
+    context.closePath();
+
+
+    context.beginPath();
+    for (let index = 0; index < point2s.length; index++) {
+      context.lineTo(point2s[index].x,point2s[index].y-15);
+    }
+    context.strokeStyle="rgb(293,211,194)"
+    context.lineWidth=1
+    context.shadowBlur = 5;
+    context.stroke();
+    context.closePath();
+
+    context.beginPath();
+    for (let index = 0; index < point2s.length; index++) {
+      context.lineTo(point2s[index].x,point2s[index].y-35);
+    }
+    context.strokeStyle="rgb(93,211,294)"
+    context.lineWidth=1
+    context.shadowBlur = 5;
+    context.stroke();
+    context.closePath();
+
+
+
+
+    for (let index = 0; index < points.length; index++) {
+      context.beginPath();
+      context.arc(points[index].x,points[index].y, 3, 0, Math.PI * 2, true);
+      context.closePath();
+      context.fillStyle = 'rgb(100,255,255)';
+      context.shadowBlur = 10;
+      context.shadowColor = 'rgb(100,255,255)';
+      context.fill()
+    }
+
+    //第一个上面的圆
+    for (let index = 0; index < points.length; index++) {
+      context.beginPath();
+      context.arc(points[index].x,points[index].y, 3, 0, Math.PI * 2, true);
+      context.closePath();
+      context.fillStyle = "rgb(93,111,194)";
+      context.shadowBlur = 10;
+      context.shadowColor = "rgb(93,111,194)";
+      context.fill()
+    }
+    //第二条线上面的圆
+    for (let index = 0; index < point1s.length; index++) {
+      context.beginPath();
+      context.arc(point1s[index].x,point1s[index].y, 3, 0, Math.PI * 2, true);
+      context.closePath();
+      context.fillStyle = "rgb(193,111,194)"
+      context.shadowBlur = 10;
+      context.shadowColor ="rgb(193,111,194)"
+      context.fill()
+    }
+    //第三条线的圆
+    for (let index = 0; index < point2s.length; index++) {
+      context.beginPath();
+      context.arc(point2s[index].x,point2s[index].y, 3, 0, Math.PI * 2, true);
+      context.closePath();
+      context.fillStyle = "rgb(293,111,294)"
+      context.shadowBlur = 10;
+      context.shadowColor ="rgb(293,111,294)"
+      context.fill()
+    }
+    //四...圆
+    for (let index = 0; index < point2s.length; index++) {
+      context.beginPath();
+      context.arc(point2s[index].x,point2s[index].y-15, 3, 0, Math.PI * 2, true);
+      context.closePath();
+      context.fillStyle = "rgb(293,211,194)"
+      context.shadowBlur = 1;
+      context.shadowColor ="rgb(293,211,194)"
+      context.fill()
+    }
+    //第五条线上面的圆圈
+    for (let index = 0; index < point2s.length; index++) {
+      context.beginPath();
+      context.arc(point2s[index].x,point2s[index].y-35, 3, 0, Math.PI * 2, true);
+      context.closePath();
+      context.fillStyle = "rgb(93,211,294)"
+      context.shadowBlur = 1;
+      context.shadowColor ="rgb(93,211,294)"
+      context.fill()
+    }
+
+    context.restore();
+  }
+
+  //绘制填充折线和圆
+  drawMoreLine(context)
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

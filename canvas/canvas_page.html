@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Canvas</title>
+</head>
+<body>
+<canvas id="canvas"/>
+
+<script>
+    //region 1.画布创建
+    //画布标签的获取
+
+    /*const canvas = document.getElementById("canvas");
+    //设置画布的宽高
+    canvas.width=400;
+    canvas.height=200;
+
+    //绘制的对象获取
+    const context = canvas.getContext("2d");
+    //设置填充的颜色
+    context.fillStyle= 'rgb(222,155,155)';
+    //设置填充的区域为巨形 fillRect(x: number, y: number, w: number, h: number)
+    context.fillRect(0,0,canvas.width,canvas.height);*/
+
+    //endregion
+
+    //region2.设置画布宽高和渐变
+    // const canvas = document.getElementById("canvas");
+    // //设置画布的宽高
+    // canvas.width=1000;
+    // canvas.height=500;
+    //
+    // //绘制的对象获取
+    // const context = canvas.getContext("2d");
+    // //设置填充的颜色
+    // context.fillStyle = 'rgb(100,255,255)';
+    // //设置填充的区域为巨形 fillRect(x: number, y: number, w: number, h: number)
+    // context.fillRect(0,0,canvas.width,canvas.height);
+    //endregion
+
+    //region 3.线性渐变色
+    /*const canvas = document.getElementById("canvas");
+    //设置画布的宽高
+    canvas.width=1000;
+    canvas.height=500;
+
+    //绘制的对象获取
+    const context = canvas.getContext("2d");
+    //设置渐变的颜色
+    //createLinearGradient(x0: number, y0: number, x1: number, y1: number)
+    const gradient = context.createLinearGradient(0, 0, canvas.width,canvas.height);
+    gradient.addColorStop(0  ,"rgb(100,200,155)")
+    gradient.addColorStop(0.5,"rgb(200,120,155)")
+    gradient.addColorStop(1.0,"rgb(200,220,255)")
+
+    context.fillStyle = gradient
+    //设置填充的区域为巨形 fillRect(x: number, y: number, w: number, h: number)
+    context.fillRect(0,0,canvas.width,canvas.height);*/
+    //endregion
+
+    //region 4.径向渐变色
+    const canvas = document.getElementById("canvas");
+    //设置画布的宽高
+    canvas.width = 100;
+    canvas.height = 100;
+
+    //绘制的对象获取
+    const context = canvas.getContext("2d");
+    //Radial（径向）
+    //createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number)
+    const gradient =getGradient(context)
+
+    context.fillStyle = gradient
+    //设置填充的区域为巨形 fillRect(x: number, y: number, w: number, h: number)
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    //endregion
+
+
+
+    function getGradient(context){
+        const gradient = context.createRadialGradient(
+            canvas.width / 2,
+            canvas.height / 2, 20, canvas.width / 2,
+            canvas.height / 2, 50);
+        gradient.addColorStop(0, "rgb(100,200,155)")
+        gradient.addColorStop(0.8, "rgb(200,120,155)")
+        gradient.addColorStop(1.0, "rgb(00,120,105)")
+        return gradient
+    }
+
+</script>
+
+</body>
+</html>
+
+

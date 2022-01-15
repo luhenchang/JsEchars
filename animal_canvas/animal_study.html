@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="canvas_js.js"></script>
+</head>
+<body>
+<canvas id="canvas" onclick="start()"></canvas>
+</body>
+
+<script>
+    //let translateX = 0;
+    // function start() {
+    //     let value = 0 // 设置初始值
+    //     // 创建每一帧渲染之前要执行的方法
+    //     const add = () => {
+    //         requestAnimationFrame(add) // 下一帧渲染之前继续执行 add 方法
+    //         value += 12 // 每帧加数值增加5
+    //         translateX=value
+    //     }
+    //     requestAnimationFrame(add) // 下一帧渲染之前执行 add 方法
+    // }
+    const canvas = document.getElementById("canvas");
+    canvas.width=831;
+    canvas.height=706;
+    //绘制的对象获取
+    const context = canvas.getContext("2d")
+    context.beginPath();
+    //绘制顶部文字
+    context.font = "12pt Calibri";
+    context.fillText("2009年宏观经济指标",50,40)
+    context.font = "9pt Calibri";
+    context.fillStyle="rgb(111,111,111)"
+    context.fillText("数字来自于国家统计",50,60)
+    context.fillStyle="rgb(111,111,111)"
+    context.fillText("GDP（亿元）",50,80)
+
+    //第一产业
+    drawRoundRect(context,300,20,50,25,10)
+    context.fillStyle = "rgba(194,149,178,0.93)";
+    context.fill();
+    context.fillText("第一产业",360,40)
+
+    //第二产业
+    drawRoundRect(context,450,20,50,25,10)
+    context.fillStyle = "rgba(43,156,138,0.93)";
+    context.fill();
+    context.fillText("第二产业",510,40)
+
+    //第三产业
+    drawRoundRect(context,560,20,50,25,10)
+    context.fillStyle = "rgba(101,33,179,0.93)";
+    context.fill();
+    context.fillText("第三产业",620,40)
+    context.fillStyle = "rgba(6,5,7,0.93)";
+    context.closePath()
+
+
+    //变换坐标
+    translateCanvas(context)
+    //绘制x轴和平行线刻度
+    drawXLine(context)
+    //绘制X轴下面的文字
+    drawXDownText(context)
+    //绘制柱状图
+    drawRect(context)
+
+
+</script>
+</html>
